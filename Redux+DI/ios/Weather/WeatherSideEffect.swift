@@ -12,9 +12,9 @@ class WeatherSideEffect {
     
     func fetchWeather() {
         firstly {
-            api.getCityId(city: "Shanghai")
+            api.getLocation(city: "Shanghai")
         }.then { city in
-            self.api.getCityWeather(woeid: city["woeid"].intValue)
+            self.api.getWeather(woeid: city["woeid"].intValue)
         }.done { weather in
             mainStore.dispatch(
                 ActionGetWeather(weather: weather)

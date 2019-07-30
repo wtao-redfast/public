@@ -2,10 +2,11 @@ import Foundation
 import ReSwift
 import SwiftyJSON
 
-struct AppShared: StateType {
-    var api = WeatherApi()
-}
 struct AppState: StateType {
+    struct AppShared: StateType {
+        var api = WeatherApi()
+    }
+    
     var appShared = AppShared()
     var weather: JSON?
     var error: Error?

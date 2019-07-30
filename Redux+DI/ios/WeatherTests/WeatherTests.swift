@@ -14,7 +14,7 @@ import ReSwift
 
 class WeatherTests: XCTestCase {
     class FakeApi: WeatherApi {
-        override func getCityId(city: String) -> Promise<JSON> {
+        override func getLocation(city: String) -> Promise<JSON> {
             return Promise { seal in
                 var json = JSON()
                 json["woeid"].intValue = 1234
@@ -22,7 +22,7 @@ class WeatherTests: XCTestCase {
             }
         }
         
-        override func getCityWeather(woeid: Int) -> Promise<JSON> {
+        override func getWeather(woeid: Int) -> Promise<JSON> {
             return Promise { seal in
                 var json = JSON()
                 json["the_temp"].intValue = 37
