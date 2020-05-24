@@ -18,7 +18,7 @@ function App() {
                         <Typography variant="h5" component="h3">
                             {weather.city}
                         </Typography>
-                        <Typography component="p">
+                        <Typography component="p" data-testid="temperature">
                             {Math.round(weather.temperature).toString() + "℃"}
                         </Typography>
                     </Paper>
