@@ -7,28 +7,43 @@
 //
 
 import XCTest
+import UIKit
+import SwiftUI
 @testable import Weather
 
+class WeatherViewModelMock: WeatherViewModel {
+    override func loadData() {
+        weathers.append(WeatherModel(id: 0, city: "DUMMY", temperature: 20))
+    }
+}
+
 class WeatherTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    var contentView: ContentView?
+    var keyWindow: UIWindow?
+    
+    override func setUp() {
+        contentView = ContentView()
+        contentView?.viewModel = WeatherViewModelMock()
+        keyWindow = UIApplication.shared.connectedScenes
+            .filter({$0.activationState == .foregroundActive})
+            .map({$0 as? UIWindowScene})
+            .compactMap({$0})
+            .first?.windows
+            .filter({$0.isKeyWindow}).first
+        keyWindow?.rootViewController = UIHostingController(rootView: contentView)
+        keyWindow?.makeKeyAndVisible()
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    override func tearDown() {
+        contentView = nil
+        keyWindow = nil
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func wait() {
+        let _ = XCTWaiter.wait(for: [expectation(description: "Wait for view appearing")], timeout: 1.0)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testContent() {
+        wait()
     }
-
 }
