@@ -1,9 +1,6 @@
 import React, { useContext } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import { WeatherContext } from "./viewModel/WeatherViewModel";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 

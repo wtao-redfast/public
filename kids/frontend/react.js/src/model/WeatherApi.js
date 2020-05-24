@@ -1,4 +1,4 @@
-const baseUrl = "https://www.metaweather.com";
+const baseUrl = "https://cors-anywhere.herokuapp.com/https://www.metaweather.com";
 const locationSearch = "/api/location/search/?query=";
 const cityWeather = "/api/location/";
 
