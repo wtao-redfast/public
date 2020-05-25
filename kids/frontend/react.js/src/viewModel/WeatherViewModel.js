@@ -6,10 +6,10 @@ export const WeatherContext = createContext();
 
 // Create a provider for components to consume and subscribe to changes
 export const WeatherProvider = (props) => {
-    const cities = ["Shanghai", "London", "San Francisco"];
     const [weathers, setWeathers] = useState([]);
 
     useEffect(() => {
+        const cities = ["Shanghai", "London", "San Francisco"];
         const loadData = async () => {
             let items = [];
             for (const cityName of cities) {
@@ -28,7 +28,7 @@ export const WeatherProvider = (props) => {
             setWeathers(items);
         };
         loadData();
-    }, [cities]);
+    }, []);
 
     return (
         <WeatherContext.Provider value={weathers}>
