@@ -26,15 +26,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: git config --global user.email "wtao.nexus5@gmail.com"
-    - run: git config --global user.name "wtao"
     - run: npm ci
       working-directory: ${{ env.working-directory }}
     - run: npm run build
       working-directory: ${{ env.working-directory }}
     - run: npm test -- --coverage --watchAll=false
-      working-directory: ${{ env.working-directory }}
-    - run: npm run deploy --github-remote "https://cff74691b5f79dbc57eb5b08c4599ab637a9c4ff@github.com/wtao-nexus5/public.git"
-      if: github.ref == 'refs/heads/master'
       working-directory: ${{ env.working-directory }}
   
