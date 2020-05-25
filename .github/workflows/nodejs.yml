@@ -32,4 +32,13 @@ jobs:
       working-directory: ${{ env.working-directory }}
     - run: npm test -- --coverage --watchAll=false
       working-directory: ${{ env.working-directory }}
-  
+    - name: Deploy
+      if: github.ref == 'refs/heads/master'
+      working-directory: ${{ env.working-directory }}
+      run: |
+        git config --global user.email ${{ secrets.EMAIL }}
+        git config --global user.name ${{ secrets.USER_NAME }}
+        git remote set-url origin https://${{ secrets.TOKEN }}@github.com/${{ secrets.USER_NAME }}/public.git
+        npm run deploy
+      
+      
