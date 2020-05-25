@@ -32,7 +32,7 @@ jobs:
       working-directory: ${{ env.working-directory }}
     - run: npm test -- --coverage --watchAll=false
       working-directory: ${{ env.working-directory }}
-    - run: npm deploy
+    - run: npm run deploy
       if: github.ref == 'refs/heads/master'
       working-directory: ${{ env.working-directory }}
   
