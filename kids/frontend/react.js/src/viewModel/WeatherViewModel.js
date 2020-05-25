@@ -28,7 +28,7 @@ export const WeatherProvider = (props) => {
             setWeathers(items);
         };
         loadData();
-    }, []);
+    }, [cities]);
 
     return (
         <WeatherContext.Provider value={weathers}>
