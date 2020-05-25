@@ -6,6 +6,9 @@ app.listen(3000);
 app.get("/api/location/search", (req, res) => {
     console.log(req);
     let woeid = 20200525;
+    if (req.query.query == null) {
+        console.error("invalid query " + JSON.stringify(req.query));
+    }
     switch (req.query.query) {
         case "Shanghai":
             woeid = 20201212;
