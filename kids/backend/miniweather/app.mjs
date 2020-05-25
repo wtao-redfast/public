@@ -4,12 +4,13 @@ const app = express();
 app.listen(3000);
 
 app.get("/api/location/search", (req, res) => {
+    console.log(req);
     let woeid = 20200525;
     switch (req.query.query) {
-        case "shanghai":
+        case "Shanghai":
             woeid = 20201212;
             break;
-        case "san jose":
+        case "San Francisco":
             woeid = 20201213;
             break;
         default:
@@ -24,9 +25,10 @@ app.get("/api/location/search", (req, res) => {
 });
 
 app.get("/api/location/:woeid/", (req, res) => {
+    console.log(req);
     let the_temp = 0;
     switch (req.params.woeid) {
-        case "2020121":
+        case "20201212":
             the_temp = -15;
             break;
         case "20201213":
