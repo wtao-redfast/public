@@ -1,7 +1,8 @@
 import express from "express";
 
 const app = express();
-app.listen(3000);
+const PORT = process.env.PORT || 3000; //app must listen $PORT in heroku. https://help.heroku.com/P1AVPANS/why-is-my-node-js-app-crashing-with-an-r10-error
+app.listen(PORT);
 
 app.get("/api/location/search", (req, res) => {
     console.log(req);
