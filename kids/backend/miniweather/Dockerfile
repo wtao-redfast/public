@@ -15,6 +15,7 @@ RUN npm install
 # Bundle app source
 COPY . .
 
+# Unused if in heroku cloud
 EXPOSE 3000
 
 CMD [ "npm", "start" ]

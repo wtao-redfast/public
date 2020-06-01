@@ -24,6 +24,7 @@ local.properties
 **/*.xcscheme
 **/*.xcworkspace/
 **/package-lock.json
+**coverage
 
 ## Various settings
 *.pbxuser
